@@ -1650,6 +1650,24 @@ class visualization_msgs__msg__MenuEntry:
     __msgtype__: ClassVar[str] = 'visualization_msgs/msg/MenuEntry'
 
 
+@dataclass
+class velodyne_msgs__msg__VelodynePacket:
+    """Class for velodyne_msgs/msg/VelodynePacket."""
+
+    stamp: builtin_interfaces__msg__Time
+    data: numpy.ndarray[Any, numpy.dtype[numpy.uint8]]
+    __msgtype__: ClassVar[str] = 'velodyne_msgs/msg/VelodynePacket'
+
+
+@dataclass
+class velodyne_msgs__msg__VelodyneScan:
+    """Class for velodyne_msgs/msg/VelodyneScan."""
+
+    header: std_msgs__msg__Header
+    packets: list[velodyne_msgs__msg__VelodynePacket]
+    __msgtype__: ClassVar[str] = 'velodyne_msgs/msg/VelodyneScan'
+
+
 FIELDDEFS: Typesdict = {
     'builtin_interfaces/msg/Duration': (
         [],
@@ -3016,6 +3034,20 @@ FIELDDEFS: Typesdict = {
             ('title', (1, 'string')),
             ('command', (1, 'string')),
             ('command_type', (1, 'uint8')),
+        ],
+    ),
+    'velodyne_msgs/msg/VelodynePacket': (
+        [],
+        [
+            ('stamp', (2, 'builtin_interfaces/msg/Time')),
+            ('data', (3, ((1, 'uint8'), 1206))),
+        ],
+    ),
+    'velodyne_msgs/msg/VelodyneScan': (
+        [],
+        [
+            ('header', (2, 'std_msgs/msg/Header')),
+            ('packets', (4, ((2, 'velodyne_msgs/msg/VelodynePacket'), None))),
         ],
     ),
 }
